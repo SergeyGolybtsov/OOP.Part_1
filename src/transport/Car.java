@@ -1,15 +1,27 @@
-public class Car {
+package transport;
 
-    private String getBrand;
-    private String brand;
-    private String model;
+public class Car {
+    private final String brand;
+    private final String model;
     private double engineVolume;
     private String color;
-    private int productionYear;
-    private String productionCountry;
+    private final int productionYear;
+    private final String productionCountry;
+    private String transmission;
+    private final String bodyType;
+    private String registrationNumber;
+    private final int numberOfSeats;
+    private boolean summerTyres;
 
 
-    Car (String brand, String model, double engineVolume, String color, int productionYear, String productionCountry) {
+    Car (String brand,
+         String model,
+         double engineVolume,
+         String color,
+         int productionYear,
+         String productionCountry,
+         String bodyType,
+         int numberOfSeats) {
 
         this.engineVolume = engineVolume;
         if (engineVolume <= 0) {
@@ -27,6 +39,8 @@ public class Car {
         this.productionYear = productionYear;
         if (productionYear <= 0) {
             this.productionYear = 2000;
+        } else {
+            this.productionYear = productionYear;
         }
 
         this.brand = brand;
@@ -53,6 +67,12 @@ public class Car {
             this.productionCountry = "default";
         }
 
+        this.bodyType = bodyType;
+        if (bodyType == null) {
+            this.bodyType = "седан";
+        }
+
+
     }
 
 
@@ -70,5 +90,29 @@ public class Car {
     }
     public String toStringCarHyundai() {
         return brand + " " + model + ", сборка в " + productionCountry + ", цвет кузова - " + color + ", обьем двигателя - " + engineVolume + " л, год выпуска - " + productionYear + " год.";
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getProductionYear() {
+        return productionYear;
+    }
+
+    public String getProductionCountry() {
+        return productionCountry;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
     }
 }
